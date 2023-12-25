@@ -1,23 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+
+import useLocation from "./hooks/useLocation";
+import useWeather from "./hooks/useWeather";
+
+import Temperature from "./common/temperature";
+import Date from "./common/date";
+import Location from "./common/location";
+import WeatherCondition from "./common/weatherCondition";
+import FeelsLike from "./common/feelsLike";
 
 function App() {
+  const { location } = useLocation();
+  const {
+    weather,
+    getWeather,
+    temperature,
+    city,
+    weatherCondition,
+    feelsLike,
+  } = useWeather(location?.latitude, location?.longitude);
+
+  useEffect(() => {
+    getWeather();
+  }, [location]);
+
+  useEffect(() => {
+    console.log(location, weather);
+  }, [weather]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Temperature temperature={temperature} />
+      <Date />
+      <Location city={city} />
+      <WeatherCondition weatherCondition={weatherCondition} />
+      <FeelsLike feelsLike={feelsLike} />
     </div>
   );
 }
