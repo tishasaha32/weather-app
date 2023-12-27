@@ -13,31 +13,36 @@ import Humidity from "../common/humidity";
 import WindSpeed from "../common/windSpeed";
 
 import Search from "../component/Search";
+import TempContainer from "../component/TempContainer";
 
 import styles from "./Home.module.css";
 
 function Home() {
-  const { location } = useLocation();
-  const {
-    weather,
-    getWeather,
-    temperature,
-    city,
-    weatherCondition,
-    feelsLike,
-    humidity,
-    windSpeed,
-    hourlyTemp,
-  } = useWeather(location?.latitude, location?.longitude);
+  // const { location } = useLocation();
+  // const {
+  //   weather,
+  //   getWeather,
+  //   temperature,
+  //   city,
+  //   weatherCondition,
+  //   feelsLike,
+  //   humidity,
+  //   windSpeed,
+  // } = useWeather(location?.latitude, location?.longitude);
+
+  // const { hourlyTemp } = useHourlyWeather(
+  //   location?.latitude,
+  //   location?.longitude
+  // );
 
   // const { hourlyWeather, getHourlyWeather } = useHourlyWeather(
   //   location?.latitude,
   //   location?.longitude
   // );
 
-  useEffect(() => {
-    getWeather();
-  }, [location]);
+  // useEffect(() => {
+  //   getWeather();
+  // }, [location]);
 
   // useEffect(() => {
   //   console.log(location, weather);
@@ -47,13 +52,11 @@ function Home() {
     <div className={styles.homePageContainer}>
       <div className={styles.homePage}>
         <Search />
-        <Temperature temperature={temperature} />
-        <Date />
-        <Location city={city} />
-        <WeatherCondition weatherCondition={weatherCondition} />
+        <TempContainer />
+        {/* <WeatherCondition weatherCondition={weatherCondition} />
         <FeelsLike feelsLike={feelsLike} />
         <Humidity humidity={humidity} />
-        <WindSpeed windSpeed={windSpeed} />
+        <WindSpeed windSpeed={windSpeed} /> */}
       </div>
     </div>
   );
