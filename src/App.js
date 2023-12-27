@@ -3,12 +3,15 @@ import "./App.css";
 
 import useLocation from "./hooks/useLocation";
 import useWeather from "./hooks/useWeather";
+import useHourlyWeather from "./hooks/useHourlyWeather";
 
 import Temperature from "./common/temperature";
 import Date from "./common/date";
 import Location from "./common/location";
 import WeatherCondition from "./common/weatherCondition";
 import FeelsLike from "./common/feelsLike";
+import Humidity from "./common/humidity";
+import WindSpeed from "./common/windSpeed";
 
 function App() {
   const { location } = useLocation();
@@ -19,15 +22,22 @@ function App() {
     city,
     weatherCondition,
     feelsLike,
+    humidity,
+    windSpeed,
   } = useWeather(location?.latitude, location?.longitude);
+
+  const { hourlyWeather, getHourlyWeather } = useHourlyWeather(
+    location?.latitude,
+    location?.longitude
+  );
 
   useEffect(() => {
     getWeather();
   }, [location]);
 
-  useEffect(() => {
-    console.log(location, weather);
-  }, [weather]);
+  // useEffect(() => {
+  //   console.log(location, weather);
+  // }, [weather]);
 
   return (
     <div className="App">
@@ -36,6 +46,8 @@ function App() {
       <Location city={city} />
       <WeatherCondition weatherCondition={weatherCondition} />
       <FeelsLike feelsLike={feelsLike} />
+      <Humidity humidity={humidity} />
+      <WindSpeed windSpeed={windSpeed} />
     </div>
   );
 }
