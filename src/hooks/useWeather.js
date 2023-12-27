@@ -8,12 +8,19 @@ function useWeather(latitude, longitude) {
   const [feelsLike, setFeelsLike] = useState(null);
   const [humidity, setHumidity] = useState(null);
   const [windSpeed, setWindSpeed] = useState(null);
+  const [hourlyTemp, setHourlyTemp] = useState([
+    {
+      Hour: null,
+      Temperature: null,
+    },
+  ]);
 
   const getWeather = () => {
-    const apiKey = "77cd9e94db32409883147e41c773d6b2";
+    const apiKey = "a725ada07003dd768b8f3baa88c13290";
     const city = "Bangalore";
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
     const apiUrlCity = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    const apiUrlHourly = `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&exclude=current,minutely,daily&appid=${apiKey}&units=metric`;
 
     fetch(apiUrl)
       .then((response) => response.json())
@@ -25,20 +32,26 @@ function useWeather(latitude, longitude) {
         setFeelsLike(data.main.feels_like);
         setHumidity(data.main.humidity);
         setWindSpeed(data.wind.speed);
-
-        const hourlyWeather = data.hourly.slice(0, 24); // Extracting the next 24 hours' hourly forecast data
-
-        hourlyWeather.forEach((hour) => {
-          const timestamp = hour.dt; // Unix timestamp of the hour
-          const date = new Date(timestamp * 1000); // Convert timestamp to JavaScript Date object
-          const hourOfDay = date.getHours(); // Get the hour of the day (0-23)
-          const temperature = hour.temp; // Temperature for the hour
-
-          console.log(`Hour: ${hourOfDay}:00 - Temperature: ${temperature}°C`);
-        });
       })
       .catch((error) => {
         console.error("Error fetching weather data:", error);
+      });
+    fetch(apiUrlHourly)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        const hourlyData = data.hourly;
+        if (Array.isArray(hourlyData) && hourlyData.length >= 48) {
+          const hourlyDataLast24hrs = hourlyData.slice(24, 48);
+          const updatedHourlyTemp = hourlyDataLast24hrs.map((hourData) => {
+            const dateTime = new Date(hourData.dt * 1000);
+            const hour = dateTime.getHours();
+            const temperature = hourData.temp;
+
+            return { Hour: hour, Temperature: temperature };
+          });
+          setHourlyTemp(updatedHourlyTemp);
+        }
       });
   };
   return {
@@ -50,6 +63,7 @@ function useWeather(latitude, longitude) {
     feelsLike,
     humidity,
     windSpeed,
+    hourlyTemp,
   };
 }
 

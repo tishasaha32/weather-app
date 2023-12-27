@@ -33,8 +33,8 @@ function date() {
   ]; // Setting day names in the array
   const dayOfWeek = dayName[currentDate.getDay()]; // Get the day from the day number
   return (
-    <div>
-      {dayOfWeek}, {month} {day}, {year}
+    <div style={{ fontSize: "1.1rem", margin: "0" }}>
+      {dayOfWeek.substring(0, 3)}, {month} {day}, {year}
     </div>
   );
 }
