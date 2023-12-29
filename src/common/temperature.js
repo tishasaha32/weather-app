@@ -1,6 +1,7 @@
 import React from "react";
 
 function temperature({ temperature }) {
+  const temp = Math.floor(temperature);
   return (
     <div>
       <h1
@@ -9,9 +10,10 @@ function temperature({ temperature }) {
           margin: "0",
           paddingTop: "1.5rem",
           fontWeight: "bolder",
+          textAlign: "center",
         }}
       >
-        {temperature}°C
+        {temp}°C
       </h1>
     </div>
   );

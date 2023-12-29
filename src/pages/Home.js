@@ -4,18 +4,15 @@ import useLocation from "../hooks/useLocation";
 import useWeather from "../hooks/useWeather";
 import useHourlyWeather from "../hooks/useHourlyWeather";
 
-import Temperature from "../common/temperature";
-import Date from "../common/date";
-import Location from "../common/location";
 import WeatherCondition from "../common/weatherCondition";
 import FeelsLike from "../common/feelsLike";
 import Humidity from "../common/humidity";
 import WindSpeed from "../common/windSpeed";
 
 import Search from "../component/Search";
-import TempContainer from "../component/TempContainer";
 
 import styles from "./Home.module.css";
+import TempContainer from "../component/TempContainer";
 
 function Home() {
   // const { location } = useLocation();
