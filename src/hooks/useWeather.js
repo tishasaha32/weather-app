@@ -17,7 +17,7 @@ function useWeather(latitude, longitude) {
     fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setWeather(data);
         setTemperature(data.main.temp);
         setCity(data.name);

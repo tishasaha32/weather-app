@@ -5,6 +5,8 @@ import Search from "../component/Search";
 import styles from "./Home.module.css";
 import TempContainer from "../component/TempContainer";
 import WeatherOverview from "../component/WeatherOverview";
+import HourlyTempSection from "../component/HourlyTempSection";
+import DailyForecastSection from "../component/DailyForecastSection";
 
 function Home() {
   return (
@@ -13,6 +15,8 @@ function Home() {
         <Search />
         <TempContainer />
         <WeatherOverview />
+        <HourlyTempSection />
+        <DailyForecastSection />
       </div>
     </div>
   );
