@@ -8,16 +8,10 @@ import Location from "../common/location";
 
 function TempContainer() {
   const { location } = useLocation();
-  const {
-    weather,
-    getWeather,
-    temperature,
-    city,
-    weatherCondition,
-    feelsLike,
-    humidity,
-    windSpeed,
-  } = useWeather(location?.latitude, location?.longitude);
+  const { getWeather, temperature, city } = useWeather(
+    location?.latitude,
+    location?.longitude
+  );
 
   useEffect(() => {
     getWeather();

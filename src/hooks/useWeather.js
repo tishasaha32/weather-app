@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function useWeather(latitude, longitude) {
   const [weather, setWeather] = useState(null);
@@ -8,6 +8,7 @@ function useWeather(latitude, longitude) {
   const [feelsLike, setFeelsLike] = useState(null);
   const [humidity, setHumidity] = useState(null);
   const [windSpeed, setWindSpeed] = useState(null);
+  const [sealevel, setSealevel] = useState(null);
 
   const getWeather = () => {
     const apiKey = "a725ada07003dd768b8f3baa88c13290";
@@ -16,6 +17,7 @@ function useWeather(latitude, longitude) {
     fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         setWeather(data);
         setTemperature(data.main.temp);
         setCity(data.name);
@@ -23,6 +25,7 @@ function useWeather(latitude, longitude) {
         setFeelsLike(data.main.feels_like);
         setHumidity(data.main.humidity);
         setWindSpeed(data.wind.speed);
+        setSealevel(data.main.sea_level);
       })
       .catch((error) => {
         console.error("Error fetching weather data:", error);
@@ -37,6 +40,7 @@ function useWeather(latitude, longitude) {
     feelsLike,
     humidity,
     windSpeed,
+    sealevel,
   };
 }
 

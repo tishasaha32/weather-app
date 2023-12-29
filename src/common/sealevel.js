@@ -1,7 +1,7 @@
 import React from "react";
-import windspeedIcon from "../assets/windspeed.png";
+import sealevelIcon from "../assets/sealevel.png";
 
-function windSpeed({ windSpeed }) {
+function sealevel({ sealevel }) {
   return (
     <div
       style={{
@@ -11,13 +11,13 @@ function windSpeed({ windSpeed }) {
         alignItems: "center",
       }}
     >
-      <img src={windspeedIcon} />
+      <img src={sealevelIcon} />
       <p style={{ margin: "0", fontWeight: "bolder", fontSize: "16px" }}>
-        {windSpeed} mph W
+        {sealevel}%
       </p>
-      <p style={{ margin: "0", fontSize: "14px" }}>Wind Speed</p>
+      <p style={{ margin: "0", fontSize: "14px" }}>Sea level</p>
     </div>
   );
 }
 
-export default windSpeed;
+export default sealevel;
