@@ -9,6 +9,7 @@ function useWeather(latitude, longitude) {
   const [humidity, setHumidity] = useState(null);
   const [windSpeed, setWindSpeed] = useState(null);
   const [sealevel, setSealevel] = useState(null);
+  const [pressure, setPressure] = useState(null);
 
   const getWeather = () => {
     const apiKey = "e0839ad8a3e8313bdab0dd893898f7f1";
@@ -26,13 +27,13 @@ function useWeather(latitude, longitude) {
         setHumidity(data.main.humidity);
         setWindSpeed(data.wind.speed);
         setSealevel(data.main.sea_level);
+        setPressure(data.main.pressure);
         console.log(data);
       })
       .catch((error) => {
         console.error("Error fetching weather data:", error);
       });
   };
-  console.log("useWeather Called");
   return {
     weather,
     getWeather,
@@ -43,6 +44,7 @@ function useWeather(latitude, longitude) {
     humidity,
     windSpeed,
     sealevel,
+    pressure,
   };
 }
 

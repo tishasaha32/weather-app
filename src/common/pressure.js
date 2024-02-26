@@ -1,7 +1,7 @@
 import React from "react";
-import sealevelIcon from "../assets/sealevel.png";
+import pressureIcon from "../assets/pressure.png";
 
-function sealevel({ sealevel }) {
+function pressure({ pressure }) {
   return (
     <div
       style={{
@@ -11,13 +11,13 @@ function sealevel({ sealevel }) {
         alignItems: "center",
       }}
     >
-      <img src={sealevelIcon} />
+      <img src={pressureIcon} style={{ width: "24px", height: "24px" }} />
       <p style={{ margin: "0", fontWeight: "bolder", fontSize: "16px" }}>
-        {sealevel}%
+        {pressure}%
       </p>
-      <p style={{ margin: "0", fontSize: "14px" }}>Sea level</p>
+      <p style={{ margin: "0", fontSize: "14px" }}>Pressure</p>
     </div>
   );
 }
 
-export default sealevel;
+export default pressure;

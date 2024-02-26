@@ -14,7 +14,7 @@ function TempContainer() {
   );
 
   useEffect(() => {
-    getWeather();
+    if (location.latitude) getWeather();
   }, [location]);
 
   return (

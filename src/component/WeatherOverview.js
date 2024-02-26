@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Humidity from "../common/humidity";
 import WindSpeed from "../common/windSpeed";
-import Sealevel from "../common/sealevel";
+import Pressure from "../common/pressure";
 import styles from "./WeatherOverview.module.css";
 
 import useLocation from "../hooks/useLocation";
@@ -9,12 +9,12 @@ import useWeather from "../hooks/useWeather";
 
 function WeatherOverview() {
   const { location } = useLocation();
-  const { getWeather, humidity, windSpeed, sealevel } = useWeather(
+  const { getWeather, humidity, windSpeed, sealevel, pressure } = useWeather(
     location?.latitude,
     location?.longitude
   );
   useEffect(() => {
-    getWeather();
+    if (location.latitude) getWeather();
   }, [location]);
 
   return (
@@ -22,7 +22,7 @@ function WeatherOverview() {
       <div className={styles.weatherOverview}>
         <Humidity humidity={humidity} />
         <WindSpeed windSpeed={windSpeed} />
-        <Sealevel sealevel={sealevel} />
+        <Pressure pressure={pressure} />
       </div>
     </div>
   );
