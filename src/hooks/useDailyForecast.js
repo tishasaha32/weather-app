@@ -9,8 +9,8 @@ function useDailyForecast(latitude, longitude) {
   ]);
 
   const getDailyForecast = () => {
-    const apiKey = "a725ada07003dd768b8f3baa88c13290";
-    const apiUrlDaily = `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&exclude=current,minutely&appid=${apiKey}&units=metric`;
+    const apiKey = "e0839ad8a3e8313bdab0dd893898f7f1";
+    const apiUrlDaily = `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
 
     fetch(apiUrlDaily)
       .then((response) => response.json())

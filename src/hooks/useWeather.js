@@ -11,7 +11,7 @@ function useWeather(latitude, longitude) {
   const [sealevel, setSealevel] = useState(null);
 
   const getWeather = () => {
-    const apiKey = "a725ada07003dd768b8f3baa88c13290";
+    const apiKey = "e0839ad8a3e8313bdab0dd893898f7f1";
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
 
     fetch(apiUrl)
@@ -26,11 +26,13 @@ function useWeather(latitude, longitude) {
         setHumidity(data.main.humidity);
         setWindSpeed(data.wind.speed);
         setSealevel(data.main.sea_level);
+        console.log(data);
       })
       .catch((error) => {
         console.error("Error fetching weather data:", error);
       });
   };
+  console.log("useWeather Called");
   return {
     weather,
     getWeather,
