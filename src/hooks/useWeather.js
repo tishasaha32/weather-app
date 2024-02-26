@@ -14,8 +14,10 @@ function useWeather(latitude, longitude) {
   const getWeather = () => {
     const apiKey = "e0839ad8a3e8313bdab0dd893898f7f1";
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+    const city = "Bangalore"; // Replace "London" with the desired city name
+    const apiUrlCity = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
-    fetch(apiUrl)
+    fetch(apiUrlCity)
       .then((response) => response.json())
       .then((data) => {
         // console.log(data);
@@ -28,7 +30,6 @@ function useWeather(latitude, longitude) {
         setWindSpeed(data.wind.speed);
         setSealevel(data.main.sea_level);
         setPressure(data.main.pressure);
-        console.log(data);
       })
       .catch((error) => {
         console.error("Error fetching weather data:", error);
