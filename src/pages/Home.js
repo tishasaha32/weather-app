@@ -7,6 +7,7 @@ import Search from "../component/Search";
 import styles from "./Home.module.css";
 import TempContainer from "../component/TempContainer";
 import WeatherOverview from "../component/WeatherOverview";
+import FeelsLikeAndConditionContainer from "../component/FeelsLikeAndConditionContainer";
 
 import CloudyBG from "../assets/cloudyBG.mp4";
 import SunnyBG from "../assets/sunnyBG.mp4";
@@ -39,24 +40,6 @@ function Home() {
       }
     }
   }, [temperature]);
-  // temp = temperature;
-  // let videoSource;
-
-  // if (temperature >= 20 && temperature <= 30) {
-  //   console.log("Entered cloudy condition");
-  //   videoSource = CloudyBG;
-  // } else if (temperature > 30) {
-  //   console.log("Entered sunny condition");
-  //   videoSource = SunnyBG;
-  // } else if (temperature < 20) {
-  //   console.log("Entered snowy condition");
-  //   videoSource = SnowyBG;
-  // } else {
-  //   console.log("Entered no Condition area");
-  // }
-
-  // videoSource =
-  //   temperature < 20 ? SnowyBG : temperature > 30 ? SunnyBG : CloudyBG;
 
   return (
     <div
@@ -80,6 +63,7 @@ function Home() {
       <div className={styles.homePage}>
         <Search />
         <TempContainer />
+        <FeelsLikeAndConditionContainer />
         <WeatherOverview />
       </div>
     </div>

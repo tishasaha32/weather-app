@@ -14,7 +14,7 @@ function useWeather(latitude, longitude) {
   const getWeather = () => {
     const apiKey = "e0839ad8a3e8313bdab0dd893898f7f1";
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-    const city = "Bangalore"; // Replace "London" with the desired city name
+    const city = "Bangalore";
     const apiUrlCity = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
     fetch(apiUrlCity)

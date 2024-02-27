@@ -1,0 +1,13 @@
+.feelsLikeAndConditionContainer{
+    margin: 2rem;
+    display: flex;
+    position: relative;
+}
+.image{
+    margin-right: 6rem; 
+}
+.weatherConditionContainer{
+    position: absolute;
+    right: 0;
+    transform: translateY(50%); 
+}
