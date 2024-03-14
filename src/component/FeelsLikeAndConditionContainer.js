@@ -21,16 +21,23 @@ function FeelsLikeAndConditionContainer() {
   }, [location]);
 
   useEffect(() => {
-    if (temperature) {
-      if (temperature >= 20 && temperature <= 30) {
+    if (weatherCondition) {
+      if (
+        weatherCondition === "Clouds" ||
+        weatherCondition === "Rain" ||
+        weatherCondition === "Thunderstorm"
+      ) {
+        console.log("Entered cloudy condition");
         setImgSrc(RainyImg);
-      } else if (temperature > 30) {
+      } else if (weatherCondition === "Clear") {
+        console.log("Entered sunny condition");
         setImgSrc(SunnyImg);
       } else {
+        console.log("Entered snowy condition");
         setImgSrc(SnowyImg);
       }
     }
-  }, [temperature]);
+  }, [weatherCondition]);
 
   return (
     <div className={styles.feelsLikeAndConditionContainer}>

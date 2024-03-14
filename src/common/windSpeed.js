@@ -1,5 +1,5 @@
 import React from "react";
-import windspeedIcon from "../assets/windspeed.png";
+import { FaWind } from "react-icons/fa";
 
 function windSpeed({ windSpeed }) {
   return (
@@ -11,7 +11,7 @@ function windSpeed({ windSpeed }) {
         alignItems: "center",
       }}
     >
-      <img src={windspeedIcon} />
+      <FaWind style={{ width: "1.5rem", height: "1.5rem" }} />
       <p style={{ margin: "0", fontWeight: "bolder", fontSize: "16px" }}>
         {windSpeed} mph W
       </p>

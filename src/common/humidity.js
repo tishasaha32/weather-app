@@ -1,5 +1,5 @@
 import React from "react";
-import humidityIcon from "../assets/humidity.png";
+import { FaDroplet } from "react-icons/fa6";
 
 function humidity({ humidity }) {
   return (
@@ -11,7 +11,7 @@ function humidity({ humidity }) {
         alignItems: "center",
       }}
     >
-      <img src={humidityIcon} />
+      <FaDroplet style={{ width: "1.5rem", height: "1.5rem" }} />
       <p style={{ margin: "0", fontWeight: "bolder", fontSize: "16px" }}>
         {humidity}%
       </p>

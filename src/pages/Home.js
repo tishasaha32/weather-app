@@ -15,7 +15,7 @@ import SnowyBG from "../assets/snowyBG.mp4";
 
 function Home() {
   const { location } = useLocation();
-  const { getWeather, temperature } = useWeather(
+  const { getWeather, weatherCondition } = useWeather(
     location?.latitude,
     location?.longitude
   );
@@ -27,11 +27,15 @@ function Home() {
   }, [location]);
 
   useEffect(() => {
-    if (temperature) {
-      if (temperature >= 20 && temperature <= 30) {
+    if (weatherCondition) {
+      if (
+        weatherCondition === "Clouds" ||
+        weatherCondition === "Rain" ||
+        weatherCondition === "Thunderstorm"
+      ) {
         console.log("Entered cloudy condition");
         setVideoSource(CloudyBG);
-      } else if (temperature > 30) {
+      } else if (weatherCondition === "Clear") {
         console.log("Entered sunny condition");
         setVideoSource(SunnyBG);
       } else {
@@ -39,13 +43,18 @@ function Home() {
         setVideoSource(SnowyBG);
       }
     }
-  }, [temperature]);
+  }, [weatherCondition]);
 
   return (
     <div
       className={styles.homePageContainer}
       style={{
-        color: temperature >= 20 && temperature <= 30 ? "white" : "black",
+        color:
+          weatherCondition === "Clouds" ||
+          weatherCondition === "Rain" ||
+          weatherCondition === "Thunderstorm"
+            ? "white"
+            : "black",
       }}
     >
       {videoSource && (

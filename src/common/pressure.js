@@ -1,5 +1,5 @@
 import React from "react";
-import pressureIcon from "../assets/pressure.png";
+import { TbDropletPin } from "react-icons/tb";
 
 function pressure({ pressure }) {
   return (
@@ -11,7 +11,7 @@ function pressure({ pressure }) {
         alignItems: "center",
       }}
     >
-      <img src={pressureIcon} style={{ width: "24px", height: "24px" }} />
+      <TbDropletPin style={{ width: "1.5rem", height: "1.5rem" }} />
       <p style={{ margin: "0", fontWeight: "bolder", fontSize: "16px" }}>
         {pressure}%
       </p>
