@@ -1,5 +1,7 @@
 .inputContainer{
     position: relative;
+    display: flex;
+    justify-content: center;
 }
 .inputField{
     width: 65vw;

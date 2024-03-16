@@ -1,19 +1,28 @@
-import React, { useState, useEffect } from "react";
-import styles from "./Search.module.css";
+import React, { useEffect, useRef } from "react";
+import styles from "./SearchBar.module.css";
 import GoogleMapsIcon from "../assets/googleMaps.png";
 import MicIcon from "../assets/mic.png";
-
 import useVoice from "../hooks/useVoice";
+import { useLocation, useNavigate } from "react-router-dom";
 
-function Search() {
+function SearchBar() {
   const { text, isListening, listen, voiceSupported, setText } = useVoice();
+  const inputRef = useRef(null);
 
-  // const [inputText, setInputText] = useState();
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
 
-  // setInputText(text);
+  const handleClick = () => {
+    if (pathname === "/") {
+      navigate("/search");
+    }
+  };
+  useEffect(() => {
+    if (inputRef.current && pathname === "/search") inputRef.current.focus();
+  }, [pathname]);
 
   const handleInputChange = (e) => {
-    setText(e.target.value); // Update the text state when input changes
+    setText(e.target.value);
   };
 
   if (!voiceSupported) {
@@ -34,6 +43,8 @@ function Search() {
           placeholder="Search Places"
           contentEditable
           value={text}
+          ref={inputRef}
+          onClick={handleClick}
           onChange={handleInputChange}
         />
       </div>
@@ -43,4 +54,4 @@ function Search() {
   );
 }
 
-export default Search;
+export default SearchBar;

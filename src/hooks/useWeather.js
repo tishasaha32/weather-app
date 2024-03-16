@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function useWeather(latitude, longitude) {
+function useWeather(latitude, longitude, cityName = null) {
   const [weather, setWeather] = useState(null);
   const [temperature, setTemperature] = useState(null);
   const [city, setCity] = useState(null);
@@ -14,13 +14,16 @@ function useWeather(latitude, longitude) {
   const getWeather = () => {
     const apiKey = "e0839ad8a3e8313bdab0dd893898f7f1";
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-    const city = "Bangalore";
-    const apiUrlCity = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
-    fetch(apiUrlCity)
+    const apiUrlCity = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
+    let url;
+    if (cityName) {
+      url = apiUrlCity;
+    } else {
+      url = apiUrl;
+    }
+    fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        // console.log(data);
         setWeather(data);
         setTemperature(data.main.temp);
         setCity(data.name);
@@ -49,4 +52,7 @@ function useWeather(latitude, longitude) {
   };
 }
 
+// useWeather.defaultProps = {
+//   cityName: null,
+// };
 export default useWeather;

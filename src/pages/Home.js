@@ -2,7 +2,7 @@ import React, { Children, useEffect, useState } from "react";
 import useLocation from "../hooks/useLocation";
 import useWeather from "../hooks/useWeather";
 
-import Search from "../component/Search";
+import SearchBar from "../component/SearchBar";
 
 import styles from "./Home.module.css";
 import TempContainer from "../component/TempContainer";
@@ -70,7 +70,7 @@ function Home() {
         </video>
       )}
       <div className={styles.homePage}>
-        <Search />
+        <SearchBar />
         <TempContainer />
         <FeelsLikeAndConditionContainer />
         <WeatherOverview />
