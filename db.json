@@ -4,13 +4,22 @@
       "id": 1,
       "cityName": "Kolkata",
       "temperature": null,
-      "weatherCondition": null
+      "weatherCondition": null,
+      "video": null
     },
     {
       "id": 2,
       "cityName": "Hyderabad",
       "temperature": null,
-      "weatherCondition": null
+      "weatherCondition": null,
+      "video": null
+    },
+    {
+      "id": 3,
+      "cityName": "Mumbai",
+      "temperature": null,
+      "weatherCondition": null,
+      "video": null
     }
   ]
 }
