@@ -20,11 +20,11 @@ function Home() {
     location?.longitude
   );
 
-  const [videoSource, setVideoSource] = useState(null);
-
   useEffect(() => {
     if (location && location.latitude) getWeather();
   }, [location]);
+
+  const [videoSource, setVideoSource] = useState(null);
 
   useEffect(() => {
     if (weatherCondition) {

@@ -68,7 +68,6 @@ function TopCities() {
         console.error("Error fetching top cities: ", error);
       });
   }, []);
-  // console.log(topCitiesData);
 
   const handleClick = (cityName) => {
     if (pathname === "/search") {

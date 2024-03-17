@@ -6,16 +6,19 @@ import Temperature from "../common/temperature";
 import Date from "../common/date";
 import Location from "../common/location";
 
-function TempContainer() {
+function TempContainer({ isCityData, cityName }) {
   const { location } = useLocation();
   const { getWeather, temperature, city } = useWeather(
-    location?.latitude,
-    location?.longitude
+    isCityData ? "" : location?.latitude,
+    isCityData ? "" : location?.longitude,
+    isCityData ? cityName : ""
   );
 
   useEffect(() => {
-    if (location.latitude) getWeather();
-  }, [location]);
+    if (isCityData || location.latitude) {
+      getWeather();
+    }
+  }, [location, isCityData]);
 
   return (
     <div>

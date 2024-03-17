@@ -8,17 +8,20 @@ import WeatherCondition from "../common/weatherCondition";
 import FeelsLike from "../common/feelsLike";
 import styles from "./FeelsLikeAndConditionContainer.module.css";
 
-function FeelsLikeAndConditionContainer() {
-  const [imgSrc, setImgSrc] = useState(null);
+function FeelsLikeAndConditionContainer({ isCityData, cityName }) {
+  const [imgSrc, setImgSrc] = useState();
   const { location } = useLocation();
-  const { getWeather, temperature, weatherCondition, feelsLike } = useWeather(
-    location?.latitude,
-    location?.longitude
+  const { getWeather, weatherCondition, feelsLike } = useWeather(
+    isCityData ? "" : location?.latitude,
+    isCityData ? "" : location?.longitude,
+    isCityData ? cityName : ""
   );
 
   useEffect(() => {
-    if (location && location.latitude) getWeather();
-  }, [location]);
+    if (isCityData || location.latitude) {
+      getWeather();
+    }
+  }, [location, isCityData]);
 
   useEffect(() => {
     if (weatherCondition) {
