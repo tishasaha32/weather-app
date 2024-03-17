@@ -5,7 +5,7 @@ import TopCities from "../component/TopCities";
 function Search() {
   return (
     <div>
-      <SearchBar />
+      <SearchBar inSearchComponent={true} />
       <TopCities />
     </div>
   );

@@ -78,7 +78,17 @@ function TopCities() {
           return (
             <div>
               <p key={topCityData.id}>
-                <div className={styles.cityWiseForecast}>
+                <div
+                  className={styles.cityWiseForecast}
+                  style={{
+                    color:
+                      topCityData.weatherCondition === "Clouds" ||
+                      topCityData.weatherCondition === "Rain" ||
+                      topCityData.weatherCondition === "Thunderstorm"
+                        ? "white"
+                        : "black",
+                  }}
+                >
                   <div className={styles.forecastContainer}>
                     {topCityData.video && (
                       <video

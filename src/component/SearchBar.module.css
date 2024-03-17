@@ -10,6 +10,13 @@
     margin:30px 0px 0px 0px;
     border: none;
 }
+.inputFieldSearch{
+    width: 65vw;
+    padding: 0.9rem 2.5rem;
+    border-radius: 1.3rem;
+    margin:30px 0px 0px 0px;
+    border: 1px solid black;
+}
 .googleMapsIcon{
     top: 6%;
     left: 2.3rem;

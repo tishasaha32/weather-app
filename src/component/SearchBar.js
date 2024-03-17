@@ -5,7 +5,7 @@ import MicIcon from "../assets/mic.png";
 import useVoice from "../hooks/useVoice";
 import { useLocation, useNavigate } from "react-router-dom";
 
-function SearchBar() {
+function SearchBar({ inSearchComponent }) {
   const { text, isListening, listen, voiceSupported, setText } = useVoice();
   const inputRef = useRef(null);
 
@@ -39,7 +39,9 @@ function SearchBar() {
     <div>
       <div className={styles.inputContainer}>
         <input
-          className={styles.inputField}
+          className={
+            inSearchComponent ? styles.inputFieldSearch : styles.inputField
+          }
           placeholder="Search Places"
           contentEditable
           value={text}

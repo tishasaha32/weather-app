@@ -2,7 +2,7 @@
   "topCities":[
     {
       "id": 1,
-      "cityName": "Kolkata",
+      "cityName": "Chandigarh",
       "temperature": null,
       "weatherCondition": null,
       "video": null
@@ -17,6 +17,13 @@
     {
       "id": 3,
       "cityName": "Mumbai",
+      "temperature": null,
+      "weatherCondition": null,
+      "video": null
+    },
+    {
+      "id": 4,
+      "cityName": "Pondicherry",
       "temperature": null,
       "weatherCondition": null,
       "video": null
