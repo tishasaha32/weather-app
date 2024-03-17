@@ -9,10 +9,12 @@ import styles from "./TopCities.module.css";
 import CloudyBG from "../assets/cloudyBG.mp4";
 import SunnyBG from "../assets/sunnyBG.mp4";
 import SnowyBG from "../assets/snowyBG.mp4";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function TopCities() {
   const [topCitiesData, setTopCitiesData] = useState([]);
-  const [videoSource, setVideoSource] = useState(null);
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("http://localhost:8000/topCities")
@@ -66,7 +68,13 @@ function TopCities() {
         console.error("Error fetching top cities: ", error);
       });
   }, []);
-  console.log(topCitiesData);
+  // console.log(topCitiesData);
+
+  const handleClick = (cityName) => {
+    if (pathname === "/search") {
+      navigate(`/cityData/${cityName}`);
+    }
+  };
 
   return (
     <div>
@@ -74,7 +82,6 @@ function TopCities() {
         <p>Loading...</p>
       ) : (
         topCitiesData.map((topCityData) => {
-          //   const { id, cityName, weatherCondition, temperature } = topCityData;
           return (
             <div>
               <p key={topCityData.id}>
@@ -88,6 +95,7 @@ function TopCities() {
                         ? "white"
                         : "black",
                   }}
+                  onClick={() => handleClick(topCityData.cityName)}
                 >
                   <div className={styles.forecastContainer}>
                     {topCityData.video && (

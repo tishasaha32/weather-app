@@ -52,7 +52,7 @@ function Home() {
         color:
           weatherCondition === "Clouds" ||
           weatherCondition === "Rain" ||
-          weatherCondition === "Thunderstorm"
+          weatherCondition === " Thunderstorm"
             ? "white"
             : "black",
       }}
