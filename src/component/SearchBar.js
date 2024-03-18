@@ -13,7 +13,7 @@ function SearchBar({ inSearchComponent }) {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    if (pathname === "/") {
+    if (pathname !== "/search") {
       navigate("/search");
     }
   };

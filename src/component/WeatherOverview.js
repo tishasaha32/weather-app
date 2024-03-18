@@ -7,20 +7,7 @@ import styles from "./WeatherOverview.module.css";
 import useLocation from "../hooks/useLocation";
 import useWeather from "../hooks/useWeather";
 
-function WeatherOverview({ isCityData, cityName }) {
-  const { location } = useLocation();
-  const { getWeather, humidity, pressure, windSpeed } = useWeather(
-    isCityData ? "" : location?.latitude,
-    isCityData ? "" : location?.longitude,
-    isCityData ? cityName : ""
-  );
-
-  useEffect(() => {
-    if (isCityData || location.latitude) {
-      getWeather();
-    }
-  }, [location, isCityData]);
-
+function WeatherOverview({ humidity, windSpeed, pressure }) {
   return (
     <div>
       <div className={styles.weatherOverview}>

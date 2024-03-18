@@ -82,41 +82,39 @@ function TopCities() {
       ) : (
         topCitiesData.map((topCityData) => {
           return (
-            <div>
-              <p key={topCityData.id}>
-                <div
-                  className={styles.cityWiseForecast}
-                  style={{
-                    color:
-                      topCityData.weatherCondition === "Clouds" ||
-                      topCityData.weatherCondition === "Rain" ||
-                      topCityData.weatherCondition === "Thunderstorm"
-                        ? "white"
-                        : "black",
-                  }}
-                  onClick={() => handleClick(topCityData.cityName)}
-                >
-                  <div className={styles.forecastContainer}>
-                    {topCityData.video && (
-                      <video
-                        autoPlay
-                        loop
-                        muted
-                        id="myVideo"
-                        className={styles.backgroundVideo}
-                      >
-                        <source src={topCityData.video} type="video/mp4" />
-                        Your browser does not support the video tag.
-                      </video>
-                    )}
-                    <p style={{ fontWeight: "bold" }}>{topCityData.cityName}</p>
-                    <p>{topCityData.weatherCondition}</p>
-                  </div>
-                  <p style={{ fontSize: "1.8rem", fontWeight: "bold" }}>
-                    {topCityData.temperature}
-                  </p>
+            <div key={topCityData.id}>
+              <div
+                className={styles.cityWiseForecast}
+                style={{
+                  color:
+                    topCityData.weatherCondition === "Clouds" ||
+                    topCityData.weatherCondition === "Rain" ||
+                    topCityData.weatherCondition === "Thunderstorm"
+                      ? "white"
+                      : "black",
+                }}
+                onClick={() => handleClick(topCityData.cityName)}
+              >
+                <div className={styles.forecastContainer}>
+                  {topCityData.video && (
+                    <video
+                      autoPlay
+                      loop
+                      muted
+                      id="myVideo"
+                      className={styles.backgroundVideo}
+                    >
+                      <source src={topCityData.video} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  )}
+                  <p style={{ fontWeight: "bold" }}>{topCityData.cityName}</p>
+                  <p>{topCityData.weatherCondition}</p>
                 </div>
-              </p>
+                <p style={{ fontSize: "1.8rem", fontWeight: "bold" }}>
+                  {topCityData.temperature}
+                </p>
+              </div>
             </div>
           );
         })

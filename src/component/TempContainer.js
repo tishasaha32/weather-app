@@ -6,20 +6,7 @@ import Temperature from "../common/temperature";
 import Date from "../common/date";
 import Location from "../common/location";
 
-function TempContainer({ isCityData, cityName }) {
-  const { location } = useLocation();
-  const { getWeather, temperature, city } = useWeather(
-    isCityData ? "" : location?.latitude,
-    isCityData ? "" : location?.longitude,
-    isCityData ? cityName : ""
-  );
-
-  useEffect(() => {
-    if (isCityData || location.latitude) {
-      getWeather();
-    }
-  }, [location, isCityData]);
-
+function TempContainer({ city, temperature }) {
   return (
     <div>
       <Temperature temperature={temperature} />

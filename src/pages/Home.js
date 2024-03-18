@@ -1,8 +1,11 @@
 import React, { Children, useEffect, useState } from "react";
 import useLocation from "../hooks/useLocation";
 import useWeather from "../hooks/useWeather";
+import { useLocation as routerLocation, useNavigate } from "react-router-dom";
 
 import SearchBar from "../component/SearchBar";
+
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 import styles from "./Home.module.css";
 import TempContainer from "../component/TempContainer";
@@ -15,14 +18,24 @@ import SnowyBG from "../assets/snowyBG.mp4";
 
 function Home() {
   const { location } = useLocation();
-  const { getWeather, weatherCondition } = useWeather(
-    location?.latitude,
-    location?.longitude
-  );
+  const { pathname } = routerLocation();
+  const navigate = useNavigate();
+  const paramCity = pathname.split("/")[2];
+  console.log(paramCity);
+  const {
+    getWeather,
+    weatherCondition,
+    city,
+    temperature,
+    feelsLike,
+    humidity,
+    windSpeed,
+    pressure,
+  } = useWeather(location?.latitude, location?.longitude, paramCity);
 
   useEffect(() => {
-    if (location && location.latitude) getWeather();
-  }, [location]);
+    if (paramCity || (location && location.latitude)) getWeather();
+  }, [location, paramCity]);
 
   const [videoSource, setVideoSource] = useState(null);
 
@@ -33,13 +46,10 @@ function Home() {
         weatherCondition === "Rain" ||
         weatherCondition === "Thunderstorm"
       ) {
-        console.log("Entered cloudy condition");
         setVideoSource(CloudyBG);
       } else if (weatherCondition === "Clear") {
-        console.log("Entered sunny condition");
         setVideoSource(SunnyBG);
       } else {
-        console.log("Entered snowy condition");
         setVideoSource(SnowyBG);
       }
     }
@@ -70,10 +80,23 @@ function Home() {
         </video>
       )}
       <div className={styles.homePage}>
-        <SearchBar />
-        <TempContainer />
-        <FeelsLikeAndConditionContainer />
-        <WeatherOverview />
+        {pathname === "/" && <SearchBar />}
+        {pathname === `/cityData/${paramCity}` && (
+          <IoMdArrowRoundBack
+            className={styles.backButton}
+            onClick={() => navigate(-1)}
+          />
+        )}
+        <TempContainer city={city} temperature={temperature} />
+        <FeelsLikeAndConditionContainer
+          weatherCondition={weatherCondition}
+          feelsLike={feelsLike}
+        />
+        <WeatherOverview
+          humidity={humidity}
+          windSpeed={windSpeed}
+          pressure={pressure}
+        />
       </div>
     </div>
   );
