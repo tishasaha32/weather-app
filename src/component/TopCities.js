@@ -51,13 +51,10 @@ function TopCities() {
               city.weatherCondition === "Rain" ||
               city.weatherCondition === "Thunderstorm"
             ) {
-              console.log("Entered cloudy condition");
               city.video = CloudyBG;
             } else if (city.weatherCondition === "Clear") {
-              console.log("Entered sunny condition");
               city.video = SunnyBG;
             } else {
-              console.log("Entered snowy condition");
               city.video = SnowyBG;
             }
           });
@@ -80,7 +77,7 @@ function TopCities() {
       {topCitiesData.length === 0 ? (
         <p>Loading...</p>
       ) : (
-        topCitiesData.map((topCityData) => {
+        topCitiesData.slice(0, 4).map((topCityData) => {
           return (
             <div key={topCityData.id}>
               <div

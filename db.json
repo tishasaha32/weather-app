@@ -27,6 +27,139 @@
       "temperature": null,
       "weatherCondition": null,
       "video": null
+    },
+    {
+      "id": 5,
+      "cityName": "Kolkata",
+      "temperature": null,
+      "weatherCondition": null,
+      "video": null
+    },
+    {
+      "id": 6,
+      "cityName": "Chennai",
+      "temperature": null,
+      "weatherCondition": null,
+      "video": null
+    },
+    {
+      "id": 7,
+      "cityName": "Delhi",
+      "temperature": null,
+      "weatherCondition": null,
+      "video": null
+    },
+    {
+      "id": 8,
+      "cityName": "Bangalore",
+      "temperature": null,
+      "weatherCondition": null,
+      "video": null
+    },
+    {
+      "id": 9,
+      "cityName": "Guwahati",
+      "temperature": null,
+      "weatherCondition": null,
+      "video": null
+    },
+    {
+      "id": 10,
+      "cityName": "Srinagar",
+      "temperature": null,
+      "weatherCondition": null,
+      "video": null
+    },
+    {
+      "id": 11,
+      "cityName": "Ayodhya",
+      "temperature": null,
+      "weatherCondition": null,
+      "video": null
+    },
+    {
+      "id": 12,
+      "cityName": "Indore",
+      "temperature": null,
+      "weatherCondition": null,
+      "video": null
+    },
+    {
+      "id": 13,
+      "cityName": "Surat",
+      "temperature": null,
+      "weatherCondition": null,
+      "video": null
+    },
+    {
+      "id": 14,
+      "cityName": "Pune",
+      "temperature": null,
+      "weatherCondition": null,
+      "video": null
+    },
+    {
+      "id": 15,
+      "cityName": "Ahmedabad",
+      "temperature": null,
+      "weatherCondition": null,
+      "video": null
+    },
+    {
+      "id": 16,
+      "cityName": "Bhopal",
+      "temperature": null,
+      "weatherCondition": null,
+      "video": null
+    },
+    {
+      "id": 17,
+      "cityName": "Haryana",
+      "temperature": null,
+      "weatherCondition": null,
+      "video": null
+    },
+    {
+      "id": 18,
+      "cityName": "Goa",
+      "temperature": null,
+      "weatherCondition": null,
+      "video": null
+    },
+    {
+      "id": 19,
+      "cityName": "Andaman",
+      "temperature": null,
+      "weatherCondition": null,
+      "video": null
+    },
+    {
+      "id": 20,
+      "cityName": "Meghalaya",
+      "temperature": null,
+      "weatherCondition": null,
+      "video": null
+    },
+    {
+      "id": 21,
+      "cityName": "Durgapur",
+      "temperature": null,
+      "weatherCondition": null,
+      "video": null
+    },
+    {
+      "id": 22,
+      "cityName": "Thanjavur",
+      "temperature": null,
+      "weatherCondition": null,
+      "video": null
+    },
+    {
+      "id": 23,
+      "cityName": "Berhampore",
+      "temperature": null,
+      "weatherCondition": null,
+      "video": null
     }
   ]
 }
