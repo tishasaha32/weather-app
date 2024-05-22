@@ -24,3 +24,23 @@
     object-fit: cover;
     border-radius: 1rem;
 }
+.backButton{
+    /* display: flex; */
+    position: absolute;
+    right: 1rem;
+    bottom: 2rem;
+    font-size: 1.5rem;
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+@media only screen and (min-width: 600px) {
+    .cityWiseForecast{
+        width: 65vw;
+        margin: 1rem auto;
+    }
+
+}

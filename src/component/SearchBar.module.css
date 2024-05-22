@@ -42,3 +42,19 @@
     position: absolute;
     transform: translateY(-50%);
 }
+
+@media only screen and (min-width: 800px) {
+    .googleMapsIcon{
+
+        left: 15.5%;
+        top: 7.5%;
+    }
+    .micIcon{
+        right: 15.5%;
+        top: 7.5%;
+    }
+    .inputSuggestionsContainer{
+        left: 12%;
+        width: 70vw;
+    }
+  }

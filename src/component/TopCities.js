@@ -10,6 +10,7 @@ import CloudyBG from "../assets/cloudyBG.mp4";
 import SunnyBG from "../assets/sunnyBG.mp4";
 import SnowyBG from "../assets/snowyBG.mp4";
 import { useLocation, useNavigate } from "react-router-dom";
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 function TopCities() {
   const [topCitiesData, setTopCitiesData] = useState([]);
@@ -17,7 +18,7 @@ function TopCities() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:8000/topCities")
+    fetch("https://weather-app-json-server.onrender.com/topCities")
       .then((response) => response.json())
       .then((cities) => {
         const fetchWeatherPromises = cities.map((city) =>
@@ -75,7 +76,11 @@ function TopCities() {
   return (
     <div>
       {topCitiesData.length === 0 ? (
-        <p>Loading...</p>
+        <div
+          style={{ width: "100vw", display: "flex", justifyContent: "center" }}
+        >
+          <h2>Loading...</h2>
+        </div>
       ) : (
         topCitiesData.slice(0, 4).map((topCityData) => {
           return (
@@ -116,6 +121,10 @@ function TopCities() {
           );
         })
       )}
+      <IoMdArrowRoundBack
+        className={styles.backButton}
+        onClick={() => navigate(-1)}
+      />
     </div>
   );
 }

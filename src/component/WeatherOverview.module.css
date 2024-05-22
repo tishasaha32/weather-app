@@ -8,3 +8,10 @@
     gap: 2.5rem;
     height: 15vh;
 }
+
+@media only screen and (min-width: 600px) {
+    .weatherOverview{
+        width: 65vw;
+        justify-content: space-evenly;
+    }
+  }
