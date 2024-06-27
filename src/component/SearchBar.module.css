@@ -2,6 +2,7 @@
     position: relative;
     display: flex;
     justify-content: center;
+    /* width: 90vw; */
 }
 .inputField{
     width: 65vw;
@@ -31,27 +32,35 @@
     /* border-bottom: 1px solid black; */
 }
 .googleMapsIcon{
-    top: 6%;
+    /* top: 6%;
     left: 2.3rem;
     position: absolute;
-    transform: translateY(-50%);
+    transform: translateY(-50%); */
+    position: absolute;
+    top: 40px;
+    left: 40px;
 }
 .micIcon{
-    top: 6%;
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    /* top: 6%;
     right: 2.5rem;
     position: absolute;
-    transform: translateY(-50%);
+    transform: translateY(-50%); */
 }
 
 @media only screen and (min-width: 800px) {
+    /* .inputContainer{
+        width: 800px;
+    } */
     .googleMapsIcon{
-
-        left: 15.5%;
-        top: 7.5%;
+        top: 40px;
+        left: 240px;
     }
     .micIcon{
-        right: 15.5%;
-        top: 7.5%;
+        top: 40px;
+        right: 250px;
     }
     .inputSuggestionsContainer{
         left: 12%;
